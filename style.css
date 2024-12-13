@@ -1,0 +1,26 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #121212; /* Fundo dark mode */
+  color: #e0e0e0; /* Cor do texto claro */
+}
+
+#welcome-message {
+  background-color: #1e1e1e; /* Fundo do card */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-size: 1.2em;
+  border: 1px solid #333; /* Borda sutil */
+  max-width: 400px;
+  transition: transform 0.3s ease;
+}
+
+#welcome-message:hover {
+  transform: scale(1.05); /* Efeito de hover sutil */
+}
