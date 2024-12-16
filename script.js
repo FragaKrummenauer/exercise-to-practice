@@ -21,7 +21,7 @@ function mostrarBoasVindas () {
 
 // Adiciona o evento de carregamento da página
 window.onload = mostrarBoasVindas
-
+// ---------------------------------------------------------------------------------------------------
 // Exercício 2
 // Desenvolva uma função que receba um número como parâmetro e verifique se ele é par ou ímpar. `
 // Retorne true se for par e false se for ímpar.
@@ -68,3 +68,73 @@ function verificarParidade(numero) {
 console.log('\nVerificação detalhada:')
 console.log(verificarParidade(15))
 console.log(verificarParidade(20))
+// ---------------------------------------------------------------------------------------------------
+// Exercício 3
+// Implemente uma função que calcule a média aritmética de um array de números e retorne o resultado. 
+// Utilize essa função para calcular a média de diferentes conjuntos de números.
+
+// Função para calcular média aritmédica
+function calcularMedia(numeros) {
+    // Verifica se o array está vazio
+    if (numeros.length === 0) {
+        return 0
+    }
+
+    // Calcula a soma de todos os números
+    const soma = numeros.reduce((acumulador, numero) => acumulador + numero, 0)
+
+    // Calcula a média dividindo a soma pelo total de números
+
+    return soma / numeros.length
+}
+
+// Funções com validações adicionais
+function calcularMediaCompleta(numeros) {
+    // Verifica se é um array
+    if (!Array.isArray(numeros)) {
+        throw new Error('Entrada deve ser um array de números')
+    }
+
+    // Filtra apenas números válidos
+    const numerosValidos = numeros.filter(numero => typeof numero === 'number' && !isNaN(numero))
+
+    // Verifica se há números válidos
+    if (numerosValidos.length === 0) {
+        return 0
+    }
+
+    // Calcula a média
+    const soma = numerosValidos.reduce((acc, curr) => acc + curr, 0)
+    return soma / numerosValidos.length
+}
+
+// Exemplos de uso
+// Média sendo calculada pela Função calcularMedia
+    console.log('Exemplos de Médias:')
+
+    // Conjunto de notas de um aluno
+    const notasAluno1 = [7.5, 8.0, 6.5, 9.0]
+    console.log('Média das notas do Aluno 01:', calcularMedia(notasAluno1))
+
+    // Temperaturas de uma semana
+    const temperaturasSemanais = [22.5, 23.0, 21.8, 24.2, 22.9, 23.5, 22.0]
+    console.log('Média de Temperaturas:', calcularMedia(temperaturasSemanais))
+
+    // Conjunto de números diferentes
+    const conjuntoNumeros = [10, 20, 30, 40, 50]
+    console.log('Média de conjunto de números:', calcularMedia(conjuntoNumeros))
+
+// Exemplo com função completa
+// Médiasendo calculada pela função calcularMediaCompleta
+
+    try {
+        console.log('Média com validações:')
+        console.log(calcularMediaCompleta([5, 10, 15, 20, 25]))
+
+    // Testando validações
+    console.log(calcularMediaCompleta([5, 10, 'texto', null, 20]))  
+
+} catch (erro) {
+    console.erro(erro.message)
+}
+
