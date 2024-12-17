@@ -84,7 +84,6 @@ function calcularMedia(numeros) {
     const soma = numeros.reduce((acumulador, numero) => acumulador + numero, 0)
 
     // Calcula a média dividindo a soma pelo total de números
-
     return soma / numeros.length
 }
 
@@ -137,4 +136,58 @@ function calcularMediaCompleta(numeros) {
 } catch (erro) {
     console.erro(erro.message)
 }
+// ---------------------------------------------------------------------------------------------------
+// Exercício 4
+// Crie uma função que receba uma string como parâmetro e retorne a mesma string com todas as 
+// letras em caixa alta. Utilize essa função para converter diferentes strings.
 
+// Função básica para converter string para maiúsculas
+function converterMaiusculo (texto) {
+    // Verifica se a entrada é uma string
+    if (typeof texto !== 'string') {
+        return 'Entrada inválida! Forneça um string.'
+    }
+
+    // Converte para maiúsculas
+    return texto.toUpperCase()
+}
+
+// Função com tratamentos adicionais
+function converterMaiusculoAvancadas (texto) {
+    // Verifica se a entrada é válida
+    if (typeof texto !== 'string') {
+        return 'Entrada inválida! Forneça uma string.'
+    }
+
+    // Remove espaços extras no início e fim
+    const textoTratado = texto.trim()
+
+    // Converte para maiúsculo
+    return textoTratado.toUpperCase()
+}
+
+// Exemplos de uso
+console.log('Conversão para Maiúsculo:')
+
+    // Exemplos com nomes
+    console.log('Nome:', converterMaiusculo('maria eduarda'))
+    console.log('Nome:', converterMaiusculo('João Pedro Santos'))
+
+    // Exemplo com frases
+    console.log('Frase:', converterMaiusculo('olá, mundo!'))
+
+// Exemplo com Função Avançadas
+console.log('\nFunção Avançada:')
+console.log('Com Espaços:', converterMaiusculoAvancadas('   teste de string  '))
+console.log('Frase mista:', converterMaiusculoAvancadas('Javascript é Incrível'))
+
+// Exemplos de tratamento de erro
+console.log('\nTratamento de Entradas Erro:')
+console.log('Número:', converterMaiusculo(123))
+console.log('Objeto:', converterMaiusculo({}))
+
+// Exemplos de tratamento de erro com Função Avançadas
+console.log('\nFunção Avançada Erro:')
+console.log('Número:', converterMaiusculoAvancadas(123))
+console.log('Objeto:', converterMaiusculoAvancadas({}))
+// ---------------------------------------------------------------------------------------------------
