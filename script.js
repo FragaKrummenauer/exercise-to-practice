@@ -267,3 +267,69 @@ console.log(verificadorPrimo(17))
 console.log(verificadorPrimo(20))
 console.log(verificadorPrimo(250))
 // ---------------------------------------------------------------------------------------------------
+// Exercício 6
+// Implemente uma função que inverta a ordem dos elementos em um array. Utilize essa função para inverter a 
+// ordem de diferentes conjuntos de elementos.
+
+// Função básica para inverter array
+function inverterArray(array) {
+    // Verifica se é um array
+    if (!Array.isArray(array)) {
+        return 'Entrada inválida! Forneça um array.'
+    }
+
+    // Método simples de inversão
+    return array.reverse()
+}
+
+// Função de inversão sem modificar o array original 
+function inverterArraySemModificar(array) {
+    // Verifica se é um array
+    if (!Array.isArray(array)) {
+        return 'Entrada inválida! Forneça um array.'
+    }
+
+    // Cria uma cópia e inverte
+    return [...array].reverse()
+}
+
+// Funcão de inversão manual (sem métodos prontos)
+function inverterArrayManualmente(array) {
+    // Verifica se é um array
+    if (!Array.isArray(array)) {
+        return 'Entrada inválida! Forneça um array.'
+    }
+
+    // Cria um novo array invertido
+    const arrayInvertido = []
+    for (let i = array.length - 1; i >= 0; i--) {
+        arrayInvertido.push(array[i])
+    }
+
+    return arrayInvertido
+}
+
+// Exemplos de uso
+console.log('Inversão de array:')
+
+// Array de números
+const numerosArray = [ 1, 2, 3, 4, 5]
+console.log('Array de números:')
+console.log('Original:', numerosArray)
+console.log('Invertido (método 1)', inverterArray(numerosArray))
+console.log('Original após a inversão:', numerosArray)
+
+
+// Array's de strings
+const frutas = ['maçã', 'banana', 'laranja', 'uva']
+console.log('\nArray de frutas:')
+console.log('Original:', frutas)
+console.log('Invertido (sem modificar):', inverterArraySemModificar(frutas))
+console.log('Original:', frutas)
+
+// Array misto
+const dadosMistos = [ 10, 'hello', true, [1, 2], { nome: 'João' } ]
+console.log('\nArray misto:')
+console.log('Original:', dadosMistos)
+console.log('Invertido (manualmente):', inverterArrayManualmente(dadosMistos))
+// ---------------------------------------------------------------------------------------------------
