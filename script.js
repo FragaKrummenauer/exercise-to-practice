@@ -191,3 +191,79 @@ console.log('\nFunção Avançada Erro:')
 console.log('Número:', converterMaiusculoAvancadas(123))
 console.log('Objeto:', converterMaiusculoAvancadas({}))
 // ---------------------------------------------------------------------------------------------------
+// Exercício 5
+// Desenvolva uma função que determine se um número é primo ou não. Retorne true se for primo e false se não for.
+
+// Função básica para verificar número primo
+function ehPrimo (numero) {
+    // Verifica se o número é primo
+    if (typeof numero !== 'number' || numero <= 1) {
+        return false
+    }
+
+    // Verifica divisibilidade até a raiz quadrada do número
+    for (i = 2; i <= Math.sqrt(numero); i++) {
+        if (numero % i === 0) {
+            return false
+        }
+    }
+
+    return true
+}
+
+// Função com análise mais detalhada 
+function verificadorPrimo(numero) {
+    // Validações iniciais
+    if (typeof numero !== 'number') {
+        return {
+            numero: numero,
+            ehPrimo: false,
+            motivo: 'Entrada inválida! Forneça um número.',
+        }
+    }
+
+    // Casos especiais
+    if (numero <= 1) {
+        return {
+            numero: numero,
+            ehPrimo: false,
+            motivo: 'Números menores ou iguais a 1 não são primos'
+        }
+    }
+
+    // Verifica divisibilidade
+    for (i = 2; i <= Math.sqrt(numero); i++) {
+        if (numero % i === 0) {
+            return {
+                numero: numero,
+                ehPrimo: false,
+                motivo: `Divisível por ${i}`
+            }
+        }
+    }
+
+    return {
+        numero: numero,
+        ehPrimo: true,
+        motivo: 'Número primo'
+    }
+}
+
+// Exemplo de uso
+console.log('Verificação e Números Primos')
+
+// Exemplo com função básica
+console.log('2 é primo?', ehPrimo(2))
+console.log('7 é primo?', ehPrimo(7))
+console.log('10 é primo?', ehPrimo(10))
+console.log('17 é primo?', ehPrimo(17))
+console.log('1 é primo?', ehPrimo(1))
+
+// Exemplos com função detalhada
+console.log('\nAnálise Detalhada:')
+console.log(verificadorPrimo(2))
+console.log(verificadorPrimo(10))
+console.log(verificadorPrimo(17))
+console.log(verificadorPrimo(20))
+console.log(verificadorPrimo(250))
+// ---------------------------------------------------------------------------------------------------
