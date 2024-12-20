@@ -397,12 +397,12 @@ console.log(calcularAcrescimoDetalhado(produto, produtoAcrescimo))
 // Função básica para verificar palíndromo
 function ehPalindromo (palavra) {
     // Verifica se é uma string
-    if (palavra !== 'string') {
+    if (typeof palavra !== 'string') {
         return 'Erro: Por Favor, forneça uma string válida.'
     }
 
     // Remove espaços e converte para minúsculo
-    let textoLimpo = palavra.toLowerCase().replace(/s/g, '')
+    let textoLimpo = palavra.toLowerCase().replace(/\s/g, '')
     
     // Inverte a string e compara
     let textoInvertido = textoLimpo.split('').reverse().join('')
@@ -440,10 +440,10 @@ function verificarPalindromo(texto) {
 console.log('Verificação de Palíndromo:')
 
 // Exemplos com a função básica
-console.log('ana', ehPalindromo('ana'))
-console.log('radar', ehPalindromo('radar'))
-console.log('javascript', ehPalindromo('javascript'))
-console.log('A man a plan a canal Panama', ehPalindromo('a man a plan a canal Panama'))
+console.log('"ana"', ehPalindromo('ana'))
+console.log('"radar"', ehPalindromo('radar'))
+console.log('"javascript"', ehPalindromo('javascript'))
+console.log("'A man a plan a canal Panama':", ehPalindromo("A man a plan a canal Panama"))
 
 // Exemplos com a função detalhada
 console.log('\nAnálise Detalhada:')
