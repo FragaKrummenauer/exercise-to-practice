@@ -333,3 +333,59 @@ console.log('\nArray misto:')
 console.log('Original:', dadosMistos)
 console.log('Invertido (manualmente):', inverterArrayManualmente(dadosMistos))
 // ---------------------------------------------------------------------------------------------------
+// Exercício 7
+// Crie uma função que receba um valor e uma porcentagem como parâmetros. 
+// A função deve retornar o valor acrescido da porcentagem indicada.
+
+// Função básica para calcular valor com acréscimo 
+function calcularAcrescimo(valor, porcentagem) {
+    // Validação de entreda
+    if (typeof valor !== 'number' || typeof porcentagem !== 'number') {
+        return 'Erro: Por Favor, forneça valores válidos'
+    }
+
+    // Calcula o acréscimo
+    const acrescimo = valor * (porcentagem/100)
+
+    // Retorna valor total com acréscimo
+    return valor + acrescimo
+}
+
+// Função com mais detalhes
+function calcularAcrescimoDetalhado(valor, porcentagem) {
+    // Validação de entreda
+    if (typeof valor !== 'number' || typeof porcentagem !== 'number') {
+        return 'Erro: Por Favor, forneça valores válidos'
+    }
+
+    // Cálculos
+    const acrescidoDetalhado = valor * (porcentagem/100)
+    const valorTotal = valor + acrescidoDetalhado
+
+    // Retorna objetos com informações detalhadas
+    return {
+        valorOriginal: valor,
+        porcentagem: porcentagem,
+        valorAcrescimo: acrescidoDetalhado,
+        valorTotal: valorTotal,
+    }
+}
+
+// Exempplos de uso
+console.log('Cálculos de Acrescimo:')
+
+// Exemplos com função básica
+console.log('Valor R$ 100 + 10%', calcularAcrescimo(100, 10))
+console.log('Valor R$ 50 + 20%', calcularAcrescimo(50, 20))
+
+// Exemplo com função detalhada
+console.log('\nCálculos detalhados:')
+console.log(calcularAcrescimoDetalhado(100,10))
+console.log(calcularAcrescimoDetalhado(50, 20))
+
+// Exemplos com valores diferentes
+const produto = 1250
+const produtoAcrescimo = 15
+
+console.log('\nProduto de R$1250 com 15% de acréscimo:')
+console.log(calcularAcrescimoDetalhado(produto, produtoAcrescimo))
