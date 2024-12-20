@@ -389,3 +389,63 @@ const produtoAcrescimo = 15
 
 console.log('\nProduto de R$1250 com 15% de acréscimo:')
 console.log(calcularAcrescimoDetalhado(produto, produtoAcrescimo))
+// ---------------------------------------------------------------------------------------------------
+// Exercício 8
+// Desenvolva uma função que verifique se uma palavra é um palíndromo (lê-se da mesma forma da esquerda para a direita e vice-versa). 
+// Retorne true se for um palíndromo e false se não for.
+
+// Função básica para verificar palíndromo
+function ehPalindromo (palavra) {
+    // Verifica se é uma string
+    if (palavra !== 'string') {
+        return 'Erro: Por Favor, forneça uma string válida.'
+    }
+
+    // Remove espaços e converte para minúsculo
+    let textoLimpo = palavra.toLowerCase().replace(/s/g, '')
+    
+    // Inverte a string e compara
+    let textoInvertido = textoLimpo.split('').reverse().join('')
+
+    return textoLimpo === textoInvertido
+}
+
+// Função com análise mais detalhada
+function verificarPalindromo(texto) {
+    // Validação de entrada
+    if (typeof texto !== 'string') {
+        return {
+            texto: texto,
+            ehPalindromo: false,
+            motivo: 'Entrada inválida! Forneça uma string',
+        }
+    }
+
+    // Limpa texto (remove espaços e converte para minúsculas)
+    const textoLimpoUm = texto.toLowerCase().replace(/\s/g, '')
+    const textoInvertidoUm = textoLimpoUm.split('').reverse().join('')
+
+    return {
+        textoOriginal: texto,
+        textoLimpo: textoLimpoUm,
+        textoInvertido: textoInvertidoUm,
+        ehPalindromo: textoLimpoUm === textoInvertidoUm,
+        motivo: textoLimpoUm === textoInvertidoUm 
+        ? 'É um Palíndromo'
+        : 'Não é um Palíndromo'
+    }
+}
+
+// Exemplos de uso
+console.log('Verificação de Palíndromo:')
+
+// Exemplos com a função básica
+console.log('ana', ehPalindromo('ana'))
+console.log('radar', ehPalindromo('radar'))
+console.log('javascript', ehPalindromo('javascript'))
+console.log('A man a plan a canal Panama', ehPalindromo('a man a plan a canal Panama'))
+
+// Exemplos com a função detalhada
+console.log('\nAnálise Detalhada:')
+console.log(verificarPalindromo('Ovo'))
+console.log(verificarPalindromo('teste'))
