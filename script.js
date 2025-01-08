@@ -449,3 +449,80 @@ console.log("'A man a plan a canal Panama':", ehPalindromo("A man a plan a canal
 console.log('\nAnálise Detalhada:')
 console.log(verificarPalindromo('Ovo'))
 console.log(verificarPalindromo('teste'))
+// ---------------------------------------------------------------------------------------------------
+// Exercício 9
+// Implemente uma função que receba um número como parâmetro e retorne sua representação binária. 
+// Utilize essa função para converter diferentes números em binário.
+
+// Função básica para converter para binário
+function converterParaBinario ( numero ) {
+    // Verifica se é um número
+    if ( typeof numero !== 'number' || isNaN(numero) ) {
+        return 'Erro: Por favor, forneça um número válido.'
+    }
+
+    // Método simples usando toString(2)
+    return numero.toString(2)
+}
+
+// Função com onversão manual
+function converterParaBinarioManual ( numero ) {
+    // Validação de entrada
+    if ( typeof numero !== 'number' || isNaN(numero)) {
+        return 'Erro: Por favor, forneça um número válido.'
+    }
+
+    if (numero === 0 ) return '0'
+    if ( numero < 0 ) return `-${converterParaBinarioManual(-numero)}`
+
+    let binario = ''
+    let num = numero
+
+    // Processo de divisão por 2
+    while ( num > 0 ) {
+        binario = ( num % 2 ) + binario
+        num = Math.floor( num / 2 )
+    }
+
+    return binario
+}
+
+// Função com detalhes do processo
+function converterParaBinarioDetalhado ( numero ) {
+    // Valido
+    if ( typeof numero !== 'number' || isNaN(numero) ) {
+        return {
+            entrada: numero,
+            erro: 'Entrada inválida.'
+        }
+    }
+
+    const binarioNativo = converterParaBinario(numero)
+    const binarioManual = converterParaBinarioManual(numero)
+
+    return {
+        numeroOriginal: numero,
+        binario: binarioNativo,
+        binarioManual: binarioManual,
+        numeroDeBits: binarioNativo.length,
+        validacao: binarioNativo === binarioManual ? 'Conversões iguais' : 'Erro na conversão',
+    }
+}
+
+// Exemplos de uso
+console.log('Conversão para Binário:')
+
+// Exemplo com função básica
+console.log('10 em bínario:', converterParaBinario(10))
+console.log('42 em binário:', converterParaBinario(42))
+console.log('7 em binário:', converterParaBinario(7))
+
+// Exemplos com função manual
+console.log('\nConversão Manual:')
+console.log('15 em binário:', converterParaBinarioManual(15))
+console.log('25 em binário:', converterParaBinarioManual(25))
+
+// Exemplos com função detalhada
+console.log("\nConversão Detalhada:")
+console.log(converterParaBinarioDetalhado(13))
+console.log(converterParaBinarioDetalhado(21))
