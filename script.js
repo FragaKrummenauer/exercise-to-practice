@@ -557,3 +557,7 @@ console.log('Fatorial com 1', calcularFatorial(1))
 console.log('Fatorial com 5', calcularFatorial(5))
 console.log('Fatorial com 7', calcularFatorial(7))
 console.log('Fatorial com -3', calcularFatorial(-3))
+// ---------------------------------------------------------------------------------------------------
+// Exercícios Adicionais
+// ---------------------------------------------------------------------------------------------------
+
