@@ -560,4 +560,25 @@ console.log('Fatorial com -3', calcularFatorial(-3))
 // ---------------------------------------------------------------------------------------------------
 // Exercícios Adicionais
 // ---------------------------------------------------------------------------------------------------
+// Exercício 1.1
+// Crie uma função que receba dois números como parâmetros e retorne a soma deles. Utilize essa função para realizar somas diferentes.
 
+function somar ( a, b ) {
+    return a + b
+}
+
+// Testando com diferentes números 
+console.log( 'Soma de 5 + 3:', somar ( 5, 3 ) )
+console.log( 'Soma de -2 + 7:', somar ( -2, 7 ) )
+console.log( 'Soma de 10.5 + 4.8:', somar ( 10.5, 4.8 ) )
+
+// Podemos também guardar o resultado em variáveis
+let resultado1 = somar ( 100, 50 )
+console.log( 'Resultado 1:', resultado1 )
+
+// Usando variáveis como parâmetros 
+let num1 = 25
+let num2 = 75
+let resultado2 = somar ( num1, num2 )
+console.log('Resultado 2:', resultado2)
+// ---------------------------------------------------------------------------------------------------
