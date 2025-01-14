@@ -526,3 +526,34 @@ console.log('25 em binário:', converterParaBinarioManual(25))
 console.log("\nConversão Detalhada:")
 console.log(converterParaBinarioDetalhado(13))
 console.log(converterParaBinarioDetalhado(21))
+// ---------------------------------------------------------------------------------------------------
+// Exercício 10
+// Crie uma função que calcule o fatorial de um número. Utilize essa função para calcular o fatorial de diferentes números.
+
+function calcularFatorial( numero ) {
+    // Verificar se o número é negativo
+    if ( numero < 0 ) {
+        return 'Não é possível calcular fatorial de número negativo'
+    }
+
+    // Casos base: fatorial de 0 ou 1 é 1
+    if ( numero === 0 || numero === 1 ) {
+        return 1
+    }
+
+    let resultadoFatorial = 1
+    while ( numero > 1 ) {
+        resultadoFatorial *= numero
+        numero--
+    }
+
+    return resultadoFatorial
+
+}
+
+// Testes com diferentes números 
+console.log('Fatorial com 0', calcularFatorial(0))
+console.log('Fatorial com 1', calcularFatorial(1))  
+console.log('Fatorial com 5', calcularFatorial(5))
+console.log('Fatorial com 7', calcularFatorial(7))
+console.log('Fatorial com -3', calcularFatorial(-3))
