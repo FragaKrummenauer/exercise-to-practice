@@ -582,3 +582,51 @@ let num2 = 75
 let resultado2 = somar ( num1, num2 )
 console.log('Resultado 2:', resultado2)
 // ---------------------------------------------------------------------------------------------------
+// Exercício 2
+// Desenvolva uma função que calcule o valor de um produto com desconto. A função deve receber o valor original do produto e o percentual de 
+// desconto como parâmetros, e retornar o valor com desconto aplicado. Utilize essa função para calcular o valor final de diferentes produtos.
+
+function calcularDesconto ( valorOriginal, percentualDesconto ) {
+    // Validação de entrada
+    if ( valorOriginal <= 0 ) {
+        return 'Valor do produto deve ser maior que zero'
+    }
+
+    if ( percentualDesconto < 0 || percentualDesconto > 100 ) {
+        return 'Percentual de desconto deve estar entre 0 e 100'
+    }
+
+    // Cálculo de desconto
+    const valorDesconto = ( valorOriginal * percentualDesconto) / 100
+    const valorFinal = valorOriginal - valorDesconto
+
+    // Formata o resultado com 2 casas decimais
+    return {
+        valorOriginal: valorOriginal.toFixed(2),
+        percentualDesconto: percentualDesconto,
+        valorDesconto: valorDesconto.toFixed(2),
+        valorFinal: valorFinal.toFixed(2),
+    }
+}
+
+// Exemplos de uso
+console.log( 'Produto 1:', calcularDesconto ( 100, 10 ) )
+// Produto de R$ 100,00 com 10% de desconto
+console.log( 'Produto 2:', calcularDesconto ( 299.99, 15) )
+// Produto de R$ 299.99 com 15% de desconto
+console.log( 'Produto 3:', calcularDesconto ( 50, 5) )
+// Produto de R$ 50.00 com 5% de desconto
+
+// Testando validações
+console.log( 'Teste valor inválido:', calcularDesconto ( -50, 10 ) )
+console.log( 'Teste desconto inválido:', calcularDesconto ( 100, 150 ) )
+
+// Armazenando o resultado em uma variável
+const resultadoOriginal = calcularDesconto( 150, 20)
+console.log(resultadoOriginal.valorFinal)
+
+// Usando com variável
+const preco = 200
+const descontoFinal = 25
+console.log( calcularDesconto( preco, descontoFinal ) )
+// ---------------------------------------------------------------------------------------------------
