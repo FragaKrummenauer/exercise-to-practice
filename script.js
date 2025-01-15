@@ -597,7 +597,7 @@ function calcularDesconto ( valorOriginal, percentualDesconto ) {
     }
 
     // Cálculo de desconto
-    const valorDesconto = ( valorOriginal * percentualDesconto) / 100
+    const valorDesconto = ( valorOriginal * percentualDesconto ) / 100
     const valorFinal = valorOriginal - valorDesconto
 
     // Formata o resultado com 2 casas decimais
@@ -612,9 +612,9 @@ function calcularDesconto ( valorOriginal, percentualDesconto ) {
 // Exemplos de uso
 console.log( 'Produto 1:', calcularDesconto ( 100, 10 ) )
 // Produto de R$ 100,00 com 10% de desconto
-console.log( 'Produto 2:', calcularDesconto ( 299.99, 15) )
+console.log( 'Produto 2:', calcularDesconto ( 299.99, 15 ) )
 // Produto de R$ 299.99 com 15% de desconto
-console.log( 'Produto 3:', calcularDesconto ( 50, 5) )
+console.log( 'Produto 3:', calcularDesconto ( 50, 5 ) )
 // Produto de R$ 50.00 com 5% de desconto
 
 // Testando validações
@@ -622,11 +622,15 @@ console.log( 'Teste valor inválido:', calcularDesconto ( -50, 10 ) )
 console.log( 'Teste desconto inválido:', calcularDesconto ( 100, 150 ) )
 
 // Armazenando o resultado em uma variável
-const resultadoOriginal = calcularDesconto( 150, 20)
-console.log(resultadoOriginal.valorFinal)
+const resultadoOriginal = calcularDesconto ( 150, 20)
+console.log( resultadoOriginal.valorFinal )
 
 // Usando com variável
 const preco = 200
 const descontoFinal = 25
-console.log( calcularDesconto( preco, descontoFinal ) )
+console.log( calcularDesconto ( preco, descontoFinal ) )
 // ---------------------------------------------------------------------------------------------------
+// Exercício 3
+// Implemente uma função que verifique se uma palavra é um anagrama de outra. Um anagrama é uma palavra que pode ser formada a partir de outra, 
+// reorganizando suas letras. Retorne true se for um anagrama e false se não for.
+
