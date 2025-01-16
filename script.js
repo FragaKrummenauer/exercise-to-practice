@@ -634,3 +634,35 @@ console.log( calcularDesconto ( preco, descontoFinal ) )
 // Implemente uma função que verifique se uma palavra é um anagrama de outra. Um anagrama é uma palavra que pode ser formada a partir de outra, 
 // reorganizando suas letras. Retorne true se for um anagrama e false se não for.
 
+function verificarAnagrama ( palavra1, palavra2) {
+    // Remove espaços e converte para minúsculas para comnparação
+    palavra1 = palavra1.toLowerCase().replace(/\s/g, '')
+    palavra2 = palavra2.toLowerCase().replace(/\s/g, '')
+
+    // Verifica se as palavras tem o mesmo tamanho
+    if ( palavra1.length !== palavra2.length) {
+        return false
+    }
+
+    // Converte as palavras em arrays, ordena as letras e compara
+    const ordenarPalavra = str => str.split('').sort().join('')
+    const palavra1Ordenada = ordenarPalavra(palavra1)
+    const palavra2Ordenada = ordenarPalavra(palavra2)
+
+    // Retorna true se as palavras ordenadas forem iguais
+    return palavra1Ordenada === palavra2Ordenada
+}
+
+// Testes com diferentes casos 
+console.log('amor e roma:', verificarAnagrama('amor', 'roma'))
+
+console.log('pato e topa:', verificarAnagrama('pato', 'topa'))
+
+console.log('casa e sacada:', verificarAnagrama('casa', 'sacada'))
+
+console.log('Listen e Silent:', verificarAnagrama('Listen', 'Silent'))
+
+console.log('hello e world:', verificarAnagrama('hello', 'world'))
+
+// Testando com frases (ignora espaço)
+console.log('rail safety e fairy tales:', verificarAnagrama('rail safety', 'fairy tales'))
