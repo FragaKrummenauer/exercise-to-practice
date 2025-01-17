@@ -666,3 +666,45 @@ console.log('hello e world:', verificarAnagrama('hello', 'world'))
 
 // Testando com frases (ignora espaço)
 console.log('rail safety e fairy tales:', verificarAnagrama('rail safety', 'fairy tales'))
+// ---------------------------------------------------------------------------------------------------
+// Exercício 4
+// Crie uma função que receba um número como parâmetro e verifique se ele é um quadrado perfeito. Um quadrado perfeito é um 
+// número que pode ser expresso como o produto de dois números iguais. Retorne true se for um quadrado perfeito e false se não for.
+
+function verificarQuadradoPerfeito ( numero ) {
+    // Verifica se o número é negativo
+    if ( numero <= 0 ) {
+        return false
+    }
+
+    // Calcula a raiz quadrada
+    const raiz = Math.sqrt(numero)
+
+    // Verifica se a raiz é um número inteiro
+    // Um número é inteiro se for igual ao seu próprio arredondamento
+    return raiz === Math.floor(raiz)
+}
+
+function explicarQuadradoPerfeito ( numero ) {
+    const ehQuadradoPerfeito = verificarQuadradoPerfeito(numero)
+    const raiz = Math.sqrt(numero)
+
+    return {
+        numero: numero,
+        ehQuadradoPerfeito: ehQuadradoPerfeito,
+        raiz: raiz,
+        explicacao: ehQuadradoPerfeito ?
+            `${numero} = ${Math.floor(raiz)} x ${Math.floor(raiz)}` :
+            `${numero} não é um quadrado perfeito`
+    }
+}
+
+// Testes com diferentes números
+console.log(explicarQuadradoPerfeito(16))
+console.log(explicarQuadradoPerfeito(25))
+console.log(explicarQuadradoPerfeito(7))
+console.log(explicarQuadradoPerfeito(0))
+console.log(explicarQuadradoPerfeito(100))
+console.log(explicarQuadradoPerfeito(-4))
+console.log(explicarQuadradoPerfeito(30))
+// ---------------------------------------------------------------------------------------------------
