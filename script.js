@@ -708,3 +708,32 @@ console.log(explicarQuadradoPerfeito(100))
 console.log(explicarQuadradoPerfeito(-4))
 console.log(explicarQuadradoPerfeito(30))
 // ---------------------------------------------------------------------------------------------------
+// Exercício 5
+// Desenvolva uma função que calcule a área de um círculo. A função deve receber o raio como parâmetro e retornar a área calculada.
+
+function calcularAreaCirculo ( raio ) {
+    // Validação do raio
+    if ( raio <= 0 ) {
+        return 'O raio não pode ser negativo.'
+    }
+
+    // Cálculo da área: π * r²
+    const area = Math.PI * Math.pow(raio, 2)
+
+    // Retorna um objeto com as informações detalhadas
+    return {
+        raio: raio,
+        area: area,
+        areaArredondada: Number(area.toFixed(2)),
+        formula: "A = π * r²",
+        calculo: `A = ${Math.PI} * ${raio}² = ${area.toFixed(2)}`,
+    }
+}
+
+// Exemplos de usos com diferentes raios
+console.log('Círculo com raio 5:', calcularAreaCirculo(5))
+console.log('Círculo com raio 3:', calcularAreaCirculo(3))
+console.log('Círculo com raio 7.5:', calcularAreaCirculo(7.5))
+console.log('Círculo com raio 0:', calcularAreaCirculo(0))
+console.log('Círculo com raio negativo:', calcularAreaCirculo(-2))
+// ---------------------------------------------------------------------------------------------------
