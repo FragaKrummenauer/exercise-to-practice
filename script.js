@@ -778,3 +778,40 @@ testePalindromo.forEach(texto => {
     console.log(ehPalindromo(texto))
 })
 // ---------------------------------------------------------------------------------------------------
+// Exercício 7
+// Crie uma função que receba uma lista de números como parâmetro e retorne o maior número da lista.
+
+function encontrarMaiorNumero ( lista ) {
+    // Verifica se a lista está vazia
+    if ( lista.length === 0 ) {
+        return 'A lista está vazia'
+    }
+
+    // Método 1: Usando Math.max()
+    const maiorNumero = Math.max(...lista)
+
+    // Método 2: Usando reduce para comparação
+    const maiorPorReduce = lista.reduce((maior, atual) => {
+        return atual > maior ? atual : maior
+    })
+
+    // Método 3: Usando ordenação
+    const maiorPorOrdenacao = [...lista].sort((a,b) => b - a )[0]
+
+    return {
+        lista: lista,
+        maiorNumero: maiorNumero,
+        metodos: {
+            mathMax: maiorNumero,
+            reduce: maiorPorReduce,
+            ordenacao: maiorPorOrdenacao,
+        }
+    }
+}
+
+// Exemplo de uso
+console.log(encontrarMaiorNumero([ 10, 5, 8, 20, 3 ]))
+console.log(encontrarMaiorNumero([ -1, -5, -10, -3 ]))
+console.log(encontrarMaiorNumero([ 100 ]))
+console.log(encontrarMaiorNumero([]))
+// ---------------------------------------------------------------------------------------------------
