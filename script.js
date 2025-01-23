@@ -737,3 +737,44 @@ console.log('Círculo com raio 7.5:', calcularAreaCirculo(7.5))
 console.log('Círculo com raio 0:', calcularAreaCirculo(0))
 console.log('Círculo com raio negativo:', calcularAreaCirculo(-2))
 // ---------------------------------------------------------------------------------------------------
+// Exercício 6
+// Implemente uma função que receba uma string como parâmetro e verifique se ela é um palíndromo, 
+// ignorando maiúsculas e minúsculas. Retorne true se for um palíndromo e false se não for.
+
+function ehPalindromo ( texto ) {
+    // Remove caracteres especiais, espaços e converter para minúsculos
+    const textoLimpoPalindromo = texto
+    .toLowerCase()  // Converte para minúsculo
+    .replace(/[^a-z0-9]/g, '')   // Remove caracteres que não são letras e números
+
+    // Compare o texto com a versão invertida
+    const textoInvertidoPalindromo = textoLimpoPalindromo
+    .split('')    //Dividi em array de caracteres
+    .reverse()   // Inverte a ordem das caracteres
+    .join('')     // Junta de volta em string
+
+    // Retorna objeto com informações detalhadas
+    return {
+        textoOriginal: texto,
+        TextoLimpo: textoLimpoPalindromo,
+        ehPalindromo: textoLimpoPalindromo === textoInvertidoPalindromo,
+        textoInvertido: textoInvertidoPalindromo,
+    }
+}
+
+// Exemplos de teste
+const testePalindromo = [
+    'Apos a sopa', // Palíndromo com espaço
+    'A base do teto desaba', // Palíndromo completo
+    'Arara', //Palíndromo simples
+    'Amor a Roma', //Palíndromo com espaço
+    'Socorram-me, subi no ônibus em Marrocos', //Palíndromo com pontuação
+    'hello', // Não é palíndromo
+    'javascript', // Não é palíndromo
+]
+
+// Executa testes e imprime resultados
+testePalindromo.forEach(texto => {
+    console.log(ehPalindromo(texto))
+})
+// ---------------------------------------------------------------------------------------------------
