@@ -815,3 +815,33 @@ console.log(encontrarMaiorNumero([ -1, -5, -10, -3 ]))
 console.log(encontrarMaiorNumero([ 100 ]))
 console.log(encontrarMaiorNumero([]))
 // ---------------------------------------------------------------------------------------------------
+// Exercício 8
+// Desenvolva uma função que converta uma temperatura de Celsius para Fahrenheit. 
+// A função deve receber a temperatura em Celsius como parâmetro e retornar a temperatura convertida.
+
+function converterCelsiusParaFahrenheit ( temperaturaCelsius ) {
+    // Verifica se o parâmetro é um número válido
+    if ( typeof temperaturaCelsius !== 'number' ) {
+        return 'Por favor, insira um valor numérico válido'
+    }
+
+    // Fórmula de conversão: (°C × 9/5 ) + 32
+    const temperaturaFahrenheit = ( temperaturaCelsius * 9/5 ) + 32
+
+    // Retorna um objeto com informações detalhadas
+    return {
+        celsius: temperaturaCelsius,
+        fahrenheit: Number(temperaturaFahrenheit.toFixed(2)),
+        formula: "°F = (°C × 9/5) + 32",
+        calculo: `${temperaturaCelsius}°C -> ${temperaturaFahrenheit.toFixed(2)}°F `,    
+    }
+}
+
+// Exemplos de uso
+console.log('0°C:', converterCelsiusParaFahrenheit(0))
+console.log('100°C:', converterCelsiusParaFahrenheit(100))
+console.log('37°C: ( temperatura corporal )', converterCelsiusParaFahrenheit(37))
+console.log('-40°C:', converterCelsiusParaFahrenheit(-40))
+
+// Teste com entrada inválida
+console.log('Entrada inválida:', converterCelsiusParaFahrenheit('abc'))
