@@ -845,3 +845,78 @@ console.log('-40°C:', converterCelsiusParaFahrenheit(-40))
 
 // Teste com entrada inválida
 console.log('Entrada inválida:', converterCelsiusParaFahrenheit('abc'))
+// ---------------------------------------------------------------------------------------------------
+// Exercício 9
+// Implemente uma função que calcule a média ponderada de um conjunto de notas. A função deve receber as notas 
+// e os respectivos pesos como parâmetros, e retornar a média ponderada.
+
+function calcularMediaPonderada ( notas, pesos ) {
+    // Verificação de entrada 
+    if ( !Array.isArray(notas) || !Array.isArray(pesos) ) {
+        return 'Erro: As notas e pesos devem ser arrays'
+    }
+
+    if ( notas.length !== pesos.length ) {
+        return 'Erro: A quantiade de notas deve ser igual à quantidade de pesos'
+    }
+
+    if ( notas.length === 0 ) {
+        return 'Erro: Os arrays não podem estar vazios'
+    }
+
+    //  Calcula o somatório de (nota * peso)
+    let somaProdutos = 0
+    let somaPesos = 0
+
+    for ( let i = 0; i < notas.length; i++) {
+        // Verifica se os valores são números válidos
+        if ( typeof notas[i] !== 'number' || typeof pesos[i] !== 'number') {
+            return 'Erro: Todos os valores devem ser números'
+        }
+
+        // Verifica se os pesos são positivos
+        if ( pesos[i] < 0 ) {
+            return 'Erro: Os pesos não podem ser negativos'
+        }
+
+        somaProdutos += notas[i] * pesos[i]
+        somaPesos += pesos[i]
+    }
+
+    // Verifica se a soma dos pesos é zero
+    if ( somaPesos === 0 ) {
+        return 'Erro: A soma dos pesos não pode ser zero'
+    }
+
+    // Calcula a média ponderada
+    const mediaPonderada = somaProdutos / somaPesos
+
+    // Retorna o resultado com detalhes
+    return { 
+        notas: notas,
+        pesos: pesos,
+        somaProdutos: somaProdutos,
+        somaPesos: somaPesos,
+        mediaPonderada: mediaPonderada,
+        mediaArredondada: Number(mediaPonderada.toFixed(2)),
+        formula: "Média Ponderada = Σ(nota × peso) / Σ(peso)"
+    }
+}
+
+// Exemplos de uso
+const exemploBasico = calcularMediaPonderada([8, 7, 9], [2, 5, 3]);
+console.log("Exemplo básico:", exemploBasico);
+
+const exemploProva = calcularMediaPonderada([7.5, 8.0, 6.5], [3, 4, 3]);
+console.log("Exemplo de provas:", exemploProva);
+
+const exemploTrabalho = calcularMediaPonderada([10, 4, 6, 8], [1, 2, 2, 5]);
+console.log("Exemplo de trabalhos:", exemploTrabalho);
+
+// Testes de validação
+const erroPesosNegativos = calcularMediaPonderada([7, 8, 9], [2, -1, 3]);
+console.log("Erro com pesos negativos:", erroPesosNegativos);
+
+const erroArraysVazios = calcularMediaPonderada([], []);
+console.log("Erro com arrays vazios:", erroArraysVazios);
+// ---------------------------------------------------------------------------------------------------
