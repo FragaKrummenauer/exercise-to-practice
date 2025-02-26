@@ -920,3 +920,35 @@ console.log("Erro com pesos negativos:", erroPesosNegativos);
 const erroArraysVazios = calcularMediaPonderada([], []);
 console.log("Erro com arrays vazios:", erroArraysVazios);
 // ---------------------------------------------------------------------------------------------------
+// Exercício 10
+// Crie uma função que receba um número como parâmetro e verifique se ele é um número primo. 
+// Retorne true se for um número primo e false se não for.
+
+/*
+    *Verifica se um número é primo
+    * @param { number } numero - O número a ser verificado
+    * @returns { boolean } - Retorna true se for primo, false caso contrário
+*/
+
+function primoEh ( numero ) {
+    // Verifica casos básicos
+    if ( numero <= 1 ) return false
+    if ( numero <= 3 ) return true
+    if ( numero % 2 === 0 || numero % 3 === 0 ) return false
+
+    // Verifica divisibilidade por números da forma 6k +- 1
+    let divisorTeste = 5
+    while ( divisorTeste * divisorTeste <= numero ) {
+        if ( numero % divisorTeste === 0 || numero % ( divisorTeste + 2 ) === 0 ) return false
+        divisorTeste += 6
+    }
+
+    return true
+} 
+
+// Exemplos de uso
+console.log(primoEh(7))
+console.log(primoEh(10))
+console.log(primoEh(23))
+console.log(primoEh(100))
+// ---------------------------------------------------------------------------------------------------
